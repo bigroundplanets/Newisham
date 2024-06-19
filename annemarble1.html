@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meet the Founder</title>
+    <link rel="stylesheet" href="global.css" />
+    <style>
+        body {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script type="text/javascript">
+        async function fetchCatImage(testwindow) {
+            try {
+                const response = await fetch('https://api.thecatapi.com/v1/images/search');
+                const data = await response.json();
+                const catImageUrl = data[0].url; // Extract the image URL from the JSON response
+
+                // Write HTML content into the new window, including the fetched image
+                testwindow.document.write(`
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Cat Image</title>
+                        <style>
+                            body {
+                                text-align: center;
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                background-color: #f0f0f0;
+                            }
+                            img {
+                                max-width: 100%;
+                                height: auto;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <img src="${catImageUrl}" alt="Cat Image">
+                    </body>
+                    </html>
+                `);
+
+                // Close the document to finish writing
+                testwindow.document.close();
+            } catch (error) {
+                console.error('Error fetching cat image:', error);
+            }
+        }
+
+        function poponload() {
+            let windows = [];
+            windows.push(window.open("", "mywindow1", "location=1,status=1,scrollbars=1,width=400,height=400"));
+            windows.push(window.open("", "mywindow2", "location=1,status=1,scrollbars=1,width=400,height=400"));
+            windows.push(window.open("", "mywindow3", "location=1,status=1,scrollbars=1,width=400,height=400"));
+            windows.push(window.open("", "mywindow4", "location=1,status=1,scrollbars=1,width=400,height=400"));
+            windows.push(window.open("", "mywindow5", "location=1,status=1,scrollbars=1,width=400,height=400"));
+            windows.push(window.open("", "mywindow6", "location=1,status=1,scrollbars=1,width=400,height=400"));
+
+            let positions = [
+                { x: 0, y: 0 },
+                { x: 250, y: 250 },
+                { x: 800, y: 800 },
+                { x: 100, y: 800 },
+                { x: 100, y: 1000 },
+                { x: 800, y: 900 }
+            ];
+
+            for (let i = 0; i < windows.length; i++) {
+                windows[i].moveTo(positions[i].x, positions[i].y);
+                fetchCatImage(windows[i]);
+            }
+        }
+    </script>
+</head>
+<body onload="poponload()">
+    <h1>JavaScript Popup Example 3</h1>
+    <h2>Anne Marbles will see you now...</h2>
+    <img src="assets/ANNE.jpg" alt="Anne Marbles">
+</body>
+</html>

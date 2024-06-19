@@ -1,0 +1,51 @@
+<head> 
+    <title>cats</title>
+    <link rel="stylesheet" href="global.css" />
+<style>
+        body {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+ 
+
+</head>
+
+<body>
+<h1> NEWISHAM CONCIL PRIORITIES WHAT YOU CARE ABOUT</h1>
+<img src="assets/Screenshot (2309).png" height="100" width="100">
+<H1> FIND YOU CAT TODAY </H1>
+<BR>
+    <BR>
+<bR>
+
+<bR>
+<bR>
+<H1> MISSING CAT </H1>
+<div id="catImageContainer">
+    <img id="catImage" src="https://api.thecatapi.com/v1/images/search" alt="Cat Image"> 
+    <!-- Cat image will appear here -->
+</div> 
+<script>
+    async function fetchCatImage() {
+        try {
+            const response = await fetch('https://api.thecatapi.com/v1/images/search');
+            const data = await response.json();
+            const catImageUrl = data[0].url; // Extract the image URL from the JSON response
+            document.getElementById('catImage').src = catImageUrl; // Set the image URL to the img element
+        } catch (error) {
+            console.error('Error fetching cat image:', error);
+        }
+    }
+
+    // Fetch the cat image when the page loads
+    window.onload = fetchCatImage;
+</script>
+<h2> My Cat has been missing for 3 days...</h2> 
+<h2> they are greatly missed </h2>
+<h2>Please look for any cat in your area because it might be them </h2>
+<h2> Reward: £1,000</h2>
+</body>

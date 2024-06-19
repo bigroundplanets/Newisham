@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Image</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            background-image: url(assets/666.PNG);
+            background-size: 100% 100%;
+
+        }
+        img {
+            max-width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<script>
+function poponload()
+    {
+        testwindow = window.open("", "mywindow1", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(0, 0);
+        testwindow = window.open("", "mywindow2", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(250, 250);
+        testwindow = window.open("", "mywindow3", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(800, 800);
+        testwindow = window.open("", "mywindow4", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(100, 800);
+        testwindow = window.open("", "mywindow5", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(100, 621);
+        testwindow = window.open("", "mywindow6", "location=1,status=1,scrollbars=1,width=100,height=100");
+        testwindow.moveTo(800, 426);
+    }
+     </script>
+<body onload="poponload()">
+  <img src="assets/666.PNG"> 
+</body>
+</html>
